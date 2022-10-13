@@ -1,6 +1,6 @@
 #pragma once
 #include "Pokedex.h"
-using namespace std;
+
 ref class Selection_short
 {
     public:

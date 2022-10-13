@@ -210,16 +210,16 @@ namespace Lab5CesarBocel1094921 {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		array<Pokedex^>^ pokemones = gcnew array<Pokedex^>(10);
-		pokemones[0] = gcnew Pokedex(3, "Ivasur", 1);
+		
 	}
 private: System::Void btnSelection_Click(System::Object^ sender, System::EventArgs^ e) {
-		Selection_short^ pokemones = gcnew Selection_short();
+		array<Pokedex^>^ pokemones = gcnew array<Pokedex^>(10);
+		pokemones[0] = gcnew Pokedex(155, "Cyndaquil", 1);
+		pokemones[1] = gcnew Pokedex(4, "Charmander", 1);
+		array<Selection_short^>^ lista = gcnew array<Selection_short^>(10);
+		lista[0]->Selection(pokemones,2);
+
 		
-		for (int i = 0; i < 10; i++)
-		{	
-			lblOrden->Text = "El orde es " + i+":" + pokemones[0];
-		}
 }
 };
 }
