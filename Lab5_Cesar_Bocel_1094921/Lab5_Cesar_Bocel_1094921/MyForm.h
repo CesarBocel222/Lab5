@@ -1,5 +1,6 @@
 #pragma once
 #include "Pokedex.h"
+#include "Selection_short.h"
 namespace Lab5CesarBocel1094921 {
 
 	using namespace System;
@@ -38,12 +39,14 @@ namespace Lab5CesarBocel1094921 {
 	private: System::Windows::Forms::Button^ btnSelection;
 	private: System::Windows::Forms::Button^ btnQuick;
 	private: System::Windows::Forms::Button^ btnShell;
-	private: System::Windows::Forms::Label^ label2;
+
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Label^ lblT1;
 	private: System::Windows::Forms::Label^ lblT2;
 	private: System::Windows::Forms::Label^ lblT3;
+	private: System::Windows::Forms::Label^ lblDatos;
+	private: System::Windows::Forms::Label^ lblOrden;
 	protected:
 
 	private:
@@ -63,12 +66,12 @@ namespace Lab5CesarBocel1094921 {
 			this->btnSelection = (gcnew System::Windows::Forms::Button());
 			this->btnQuick = (gcnew System::Windows::Forms::Button());
 			this->btnShell = (gcnew System::Windows::Forms::Button());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->lblT1 = (gcnew System::Windows::Forms::Label());
 			this->lblT2 = (gcnew System::Windows::Forms::Label());
 			this->lblT3 = (gcnew System::Windows::Forms::Label());
+			this->lblDatos = (gcnew System::Windows::Forms::Label());
+			this->lblOrden = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -92,6 +95,7 @@ namespace Lab5CesarBocel1094921 {
 			this->btnSelection->TabIndex = 1;
 			this->btnSelection->Text = L"Selection Short";
 			this->btnSelection->UseVisualStyleBackColor = true;
+			this->btnSelection->Click += gcnew System::EventHandler(this, &MyForm::btnSelection_Click);
 			// 
 			// btnQuick
 			// 
@@ -114,28 +118,6 @@ namespace Lab5CesarBocel1094921 {
 			this->btnShell->TabIndex = 3;
 			this->btnShell->Text = L"Sehll Short";
 			this->btnShell->UseVisualStyleBackColor = true;
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(16, 119);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(89, 18);
-			this->label2->TabIndex = 4;
-			this->label2->Text = L"Sin ordenar";
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(267, 119);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(90, 18);
-			this->label3->TabIndex = 5;
-			this->label3->Text = L"Ordenados ";
 			// 
 			// button1
 			// 
@@ -182,17 +164,39 @@ namespace Lab5CesarBocel1094921 {
 			this->lblT3->TabIndex = 9;
 			this->lblT3->Text = L"Tiempo";
 			// 
+			// lblDatos
+			// 
+			this->lblDatos->AutoSize = true;
+			this->lblDatos->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblDatos->Location = System::Drawing::Point(31, 129);
+			this->lblDatos->Name = L"lblDatos";
+			this->lblDatos->Size = System::Drawing::Size(45, 20);
+			this->lblDatos->TabIndex = 10;
+			this->lblDatos->Text = L"label2";
+			// 
+			// lblOrden
+			// 
+			this->lblOrden->AutoSize = true;
+			this->lblOrden->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblOrden->Location = System::Drawing::Point(271, 128);
+			this->lblOrden->Name = L"lblOrden";
+			this->lblOrden->Size = System::Drawing::Size(45, 20);
+			this->lblOrden->TabIndex = 11;
+			this->lblOrden->Text = L"label4";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(584, 392);
+			this->Controls->Add(this->lblOrden);
+			this->Controls->Add(this->lblDatos);
 			this->Controls->Add(this->lblT3);
 			this->Controls->Add(this->lblT2);
 			this->Controls->Add(this->lblT1);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
 			this->Controls->Add(this->btnShell);
 			this->Controls->Add(this->btnQuick);
 			this->Controls->Add(this->btnSelection);
@@ -209,5 +213,13 @@ namespace Lab5CesarBocel1094921 {
 		array<Pokedex^>^ pokemones = gcnew array<Pokedex^>(10);
 		pokemones[0] = gcnew Pokedex(3, "Ivasur", 1);
 	}
+private: System::Void btnSelection_Click(System::Object^ sender, System::EventArgs^ e) {
+		Selection_short^ pokemones = gcnew Selection_short();
+		
+		for (int i = 0; i < 10; i++)
+		{	
+			lblOrden->Text = "El orde es " + i+":" + pokemones[0];
+		}
+}
 };
 }
