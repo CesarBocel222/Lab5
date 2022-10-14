@@ -14,7 +14,7 @@ ref class Selection_short
 
             for (int j = i + 1; j < size; j++) {
                 if (CompararNumPKNM(pokemones[i], pokemones[j]) > 0) {
-                    min = pokemones[j];
+.                    min = pokemones[j];
                     location = j;
                 }
             }

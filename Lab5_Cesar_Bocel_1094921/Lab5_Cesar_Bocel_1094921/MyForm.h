@@ -218,7 +218,6 @@ private: System::Void btnSelection_Click(System::Object^ sender, System::EventAr
 		pokemones[1] = gcnew Pokedex(4, "Charmander", 1);
 		array<Selection_short^>^ lista = gcnew array<Selection_short^>(10);
 		lista[0]->Selection(pokemones,2);
-
 		
 }
 };

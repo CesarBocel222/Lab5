@@ -123,6 +123,7 @@
   <ItemGroup>
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Pokedex.cpp" />
+    <ClCompile Include="Quick_Sort.cpp" />
     <ClCompile Include="Selection_short.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +131,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Pokedex.h" />
+    <ClInclude Include="Quick_Sort.h" />
     <ClInclude Include="Selection_short.h" />
   </ItemGroup>
   <ItemGroup>
