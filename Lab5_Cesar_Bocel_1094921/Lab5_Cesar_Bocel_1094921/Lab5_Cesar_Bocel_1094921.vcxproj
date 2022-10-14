@@ -125,6 +125,7 @@
     <ClCompile Include="Pokedex.cpp" />
     <ClCompile Include="Quick_Sort.cpp" />
     <ClCompile Include="Selection_short.cpp" />
+    <ClCompile Include="Shell_sort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -133,6 +134,7 @@
     <ClInclude Include="Pokedex.h" />
     <ClInclude Include="Quick_Sort.h" />
     <ClInclude Include="Selection_short.h" />
+    <ClInclude Include="Shell_sort.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">

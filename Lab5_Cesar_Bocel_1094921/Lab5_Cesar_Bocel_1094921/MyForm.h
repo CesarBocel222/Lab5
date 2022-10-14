@@ -1,6 +1,8 @@
 #pragma once
 #include "Pokedex.h"
 #include "Selection_short.h"
+#include "Quick_Sort.h"
+#include "Shell_sort.h"
 namespace Lab5CesarBocel1094921 {
 
 	using namespace System;
@@ -107,6 +109,7 @@ namespace Lab5CesarBocel1094921 {
 			this->btnQuick->TabIndex = 2;
 			this->btnQuick->Text = L"Quick short";
 			this->btnQuick->UseVisualStyleBackColor = true;
+			this->btnQuick->Click += gcnew System::EventHandler(this, &MyForm::btnQuick_Click);
 			// 
 			// btnShell
 			// 
@@ -118,6 +121,7 @@ namespace Lab5CesarBocel1094921 {
 			this->btnShell->TabIndex = 3;
 			this->btnShell->Text = L"Sehll Short";
 			this->btnShell->UseVisualStyleBackColor = true;
+			this->btnShell->Click += gcnew System::EventHandler(this, &MyForm::btnShell_Click);
 			// 
 			// button1
 			// 
@@ -214,11 +218,41 @@ namespace Lab5CesarBocel1094921 {
 	}
 private: System::Void btnSelection_Click(System::Object^ sender, System::EventArgs^ e) {
 		array<Pokedex^>^ pokemones = gcnew array<Pokedex^>(10);
-		pokemones[0] = gcnew Pokedex(155, "Cyndaquil", 1);
-		pokemones[1] = gcnew Pokedex(4, "Charmander", 1);
+		pokemones[0] = gcnew Pokedex(155, "Cyndaquil", 2);
+		pokemones[1] = gcnew Pokedex(56, "Mankey", 1);
+		pokemones[2] = gcnew Pokedex(58, "Growlithe", 1);
+		pokemones[3] = gcnew Pokedex(6, "Charizard", 1);
+		pokemones[4] = gcnew Pokedex(37, "Vulpix", 1);
+		pokemones[5] = gcnew Pokedex(98, "Krabby", 1);
+		pokemones[6] = gcnew Pokedex(248, "Tyranitar", 2);
+		pokemones[7] = gcnew Pokedex(877, "Morpeko", 8);
+		pokemones[8] = gcnew Pokedex(4, "Charmander", 1);
+		pokemones[9] = gcnew Pokedex(656, "Froakie", 6);
 		array<Selection_short^>^ lista = gcnew array<Selection_short^>(10);
-		lista[0]->Selection(pokemones,2);
+		lista[1]->Selection(pokemones,10);
 		
+}
+private: System::Void btnQuick_Click(System::Object^ sender, System::EventArgs^ e) {
+	array<Pokedex^>^ pokemones = gcnew array<Pokedex^>(10);
+	pokemones[0] = gcnew Pokedex(155, "Cyndaquil", 2);
+	pokemones[1] = gcnew Pokedex(4, "Charmander", 1);
+	array<Quick_Sort^>^ lista = gcnew array<Quick_Sort^>(10);
+	lista[0]->quicksort(pokemones, 1,2);
+}
+private: System::Void btnShell_Click(System::Object^ sender, System::EventArgs^ e) {
+	array<Pokedex^>^ pokemones = gcnew array<Pokedex^>(10);
+	pokemones[0] = gcnew Pokedex(155, "Cyndaquil", 2);
+	pokemones[1] = gcnew Pokedex(56, "Mankey", 1);
+	pokemones[2] = gcnew Pokedex(58, "Growlithe", 1);
+	pokemones[3] = gcnew Pokedex(6, "Charizard", 1);
+	pokemones[4] = gcnew Pokedex(37, "Vulpix", 1);
+	pokemones[5] = gcnew Pokedex(98, "Krabby", 1);
+	pokemones[6] = gcnew Pokedex(248, "Tyranitar", 2);
+	pokemones[7] = gcnew Pokedex(877, "Morpeko", 8);
+	pokemones[8] = gcnew Pokedex(4, "Charmander", 1);
+	pokemones[9] = gcnew Pokedex(656, "Froakie", 6);
+	array<Shell_sort^>^ lista = gcnew array<Shell_sort^>(10);
+	lista[0]->Shell(pokemones, 10);
 }
 };
 }

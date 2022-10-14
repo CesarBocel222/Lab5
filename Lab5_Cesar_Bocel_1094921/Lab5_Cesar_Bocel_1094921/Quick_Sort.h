@@ -1,33 +1,56 @@
 #pragma once
 #include "Pokedex.h"
-#include <iostream>
-using namespace std;
 ref class Quick_Sort
 {
 	public:
-        int particion(Pokedex^ PKNM1,Pokedex^ PKNM2, int izq, int der) {
-            int pivote = PKNM1->NationalN;
-            int i = izq + 1;
-            for (int j = i = 0; j<= der; j++)
-            {
-                if (PKNM2->NationalN< pivote)
-                {
-                    swap(PKNM1[i], PKNM2[j]);
-                    i++;
-                }
-                swap(PKNM1[izq], PKNM2[i - 1]);
-                return i - 1;
+        
+    static int dividir(array<Pokedex^>^ pokemones, int inicio, int fin) {
+        int izq;
+        int der;
+        Pokedex^ pibote;
+        Pokedex^ temp;
+
+        pibote = pokemones[inicio];
+        izq = inicio;
+        der = fin-1;
+
+        while (izq < der) {
+            while (pokemones[der]->NationalN >=  pibote->NationalN) {
+                der--;
+            }
+
+            while ((izq < der) && (pokemones[izq]->NationalN <= pibote->NationalN)) {
+                izq++;
+            }
+
+            // Si todavia no se cruzan los indices seguimos intercambiando
+            if (izq < der) {
+                temp = pokemones[izq];
+                pokemones[izq] = pokemones[der];
+                pokemones[der]= temp;
             }
         }
-        void quicksort(array<Pokedex^>^ pokemones, int izq, int der)
-    {
-            if (izq < der) {
-                int pivote = particion(pokemones[izq], pokemones[izq], izq, der);
-                quicksort(pokemones, izq, pivote - 1);
-                quicksort(pokemones, pivote - 1, der);
 
-                   
-      }
+        //Los indices ya se han cruzado, ponemos el pivote en el lugar que le corresponde
+        temp = pokemones[der];
+        pokemones[der] = pokemones[inicio];
+        pokemones[inicio] = temp;
+
+        //La nueva posición del pivote
+        return der;
+
     }
+
+    static void quicksort(array<Pokedex^>^ pokemones, int inicio, int fin)
+    {
+        int pivote;
+        if (inicio < fin)
+        {
+            pivote = dividir(pokemones, inicio, fin);
+            quicksort(pokemones, inicio, pivote - 1);//ordeno la lista de los menores
+            quicksort(pokemones, pivote + 1, fin);//ordeno la lista de los mayores
+        }
+    }
+
 };
 
