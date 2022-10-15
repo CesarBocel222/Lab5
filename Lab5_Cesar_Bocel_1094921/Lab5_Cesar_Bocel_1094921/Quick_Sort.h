@@ -12,10 +12,10 @@ ref class Quick_Sort
 
         pibote = pokemones[inicio];
         izq = inicio;
-        der = fin-1;
+        der = fin;
 
         while (izq < der) {
-            while (pokemones[der]->NationalN >=  pibote->NationalN) {
+            while (pokemones[der]->NationalN >  pibote->NationalN) {
                 der--;
             }
 

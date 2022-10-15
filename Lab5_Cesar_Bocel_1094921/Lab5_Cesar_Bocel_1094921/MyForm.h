@@ -235,9 +235,18 @@ private: System::Void btnSelection_Click(System::Object^ sender, System::EventAr
 private: System::Void btnQuick_Click(System::Object^ sender, System::EventArgs^ e) {
 	array<Pokedex^>^ pokemones = gcnew array<Pokedex^>(10);
 	pokemones[0] = gcnew Pokedex(155, "Cyndaquil", 2);
-	pokemones[1] = gcnew Pokedex(4, "Charmander", 1);
+	pokemones[1] = gcnew Pokedex(56, "Mankey", 1);
+	pokemones[2] = gcnew Pokedex(58, "Growlithe", 1);
+	pokemones[3] = gcnew Pokedex(6, "Charizard", 1);
+	pokemones[4] = gcnew Pokedex(37, "Vulpix", 1);
+	pokemones[5] = gcnew Pokedex(98, "Krabby", 1);
+	pokemones[6] = gcnew Pokedex(248, "Tyranitar", 2);
+	pokemones[7] = gcnew Pokedex(877, "Morpeko", 8);
+	pokemones[8] = gcnew Pokedex(4, "Charmander", 1);
+	pokemones[9] = gcnew Pokedex(656, "Froakie", 6);
 	array<Quick_Sort^>^ lista = gcnew array<Quick_Sort^>(10);
-	lista[0]->quicksort(pokemones, 1,2);
+	lista[0]->quicksort(pokemones, 0,9);
+
 }
 private: System::Void btnShell_Click(System::Object^ sender, System::EventArgs^ e) {
 	array<Pokedex^>^ pokemones = gcnew array<Pokedex^>(10);
