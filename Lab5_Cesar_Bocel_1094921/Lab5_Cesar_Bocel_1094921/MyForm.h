@@ -1,4 +1,5 @@
 #pragma once
+#include <ctime>
 #include "Pokedex.h"
 #include "Selection_short.h"
 #include "Quick_Sort.h"
@@ -49,6 +50,8 @@ namespace Lab5CesarBocel1094921 {
 	private: System::Windows::Forms::Label^ lblT3;
 	private: System::Windows::Forms::Label^ lblDatos;
 	private: System::Windows::Forms::Label^ lblOrden;
+	private: System::Windows::Forms::TextBox^ txtOrden;
+
 	protected:
 
 	private:
@@ -74,6 +77,7 @@ namespace Lab5CesarBocel1094921 {
 			this->lblT3 = (gcnew System::Windows::Forms::Label());
 			this->lblDatos = (gcnew System::Windows::Forms::Label());
 			this->lblOrden = (gcnew System::Windows::Forms::Label());
+			this->txtOrden = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -184,17 +188,27 @@ namespace Lab5CesarBocel1094921 {
 			this->lblOrden->AutoSize = true;
 			this->lblOrden->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblOrden->Location = System::Drawing::Point(271, 128);
+			this->lblOrden->Location = System::Drawing::Point(279, 104);
 			this->lblOrden->Name = L"lblOrden";
 			this->lblOrden->Size = System::Drawing::Size(45, 20);
 			this->lblOrden->TabIndex = 11;
 			this->lblOrden->Text = L"label4";
 			// 
+			// txtOrden
+			// 
+			this->txtOrden->Location = System::Drawing::Point(271, 131);
+			this->txtOrden->Multiline = true;
+			this->txtOrden->Name = L"txtOrden";
+			this->txtOrden->ScrollBars = System::Windows::Forms::ScrollBars::Horizontal;
+			this->txtOrden->Size = System::Drawing::Size(225, 98);
+			this->txtOrden->TabIndex = 12;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(584, 392);
+			this->ClientSize = System::Drawing::Size(637, 434);
+			this->Controls->Add(this->txtOrden);
 			this->Controls->Add(this->lblOrden);
 			this->Controls->Add(this->lblDatos);
 			this->Controls->Add(this->lblT3);
@@ -217,6 +231,8 @@ namespace Lab5CesarBocel1094921 {
 		
 	}
 private: System::Void btnSelection_Click(System::Object^ sender, System::EventArgs^ e) {
+	unsigned t0, t1;
+	t0 = clock();
 		array<Pokedex^>^ pokemones = gcnew array<Pokedex^>(10);
 		pokemones[0] = gcnew Pokedex(155, "Cyndaquil", 2);
 		pokemones[1] = gcnew Pokedex(56, "Mankey", 1);
@@ -229,10 +245,21 @@ private: System::Void btnSelection_Click(System::Object^ sender, System::EventAr
 		pokemones[8] = gcnew Pokedex(4, "Charmander", 1);
 		pokemones[9] = gcnew Pokedex(656, "Froakie", 6);
 		array<Selection_short^>^ lista = gcnew array<Selection_short^>(10);
-		lista[1]->Selection(pokemones,10);
+		lista[0]->Selection(pokemones,10);
+		/*
+		for (int i = 0; i < 10; i++)
+		{
+			txtOrden->Text =;
+		}
+		*/
+		t1 = clock();
+		double time = (double(t1 - t0)/ CLOCKS_PER_SEC);
+		lblT1->Text = " " + time;
 		
 }
 private: System::Void btnQuick_Click(System::Object^ sender, System::EventArgs^ e) {
+	unsigned t0, t1;
+	t0 = clock();
 	array<Pokedex^>^ pokemones = gcnew array<Pokedex^>(10);
 	pokemones[0] = gcnew Pokedex(155, "Cyndaquil", 2);
 	pokemones[1] = gcnew Pokedex(56, "Mankey", 1);
@@ -247,8 +274,14 @@ private: System::Void btnQuick_Click(System::Object^ sender, System::EventArgs^ 
 	array<Quick_Sort^>^ lista = gcnew array<Quick_Sort^>(10);
 	lista[0]->quicksort(pokemones, 0,9);
 
-}
+	t1 = clock();
+	double time = (double(t1 - t0) / CLOCKS_PER_SEC);
+	lblT2->Text = " " + time;
+
+ }
 private: System::Void btnShell_Click(System::Object^ sender, System::EventArgs^ e) {
+	unsigned t0, t1;
+	t0 = clock();
 	array<Pokedex^>^ pokemones = gcnew array<Pokedex^>(10);
 	pokemones[0] = gcnew Pokedex(155, "Cyndaquil", 2);
 	pokemones[1] = gcnew Pokedex(56, "Mankey", 1);
@@ -262,6 +295,11 @@ private: System::Void btnShell_Click(System::Object^ sender, System::EventArgs^ 
 	pokemones[9] = gcnew Pokedex(656, "Froakie", 6);
 	array<Shell_sort^>^ lista = gcnew array<Shell_sort^>(10);
 	lista[0]->Shell(pokemones, 10);
+
+	t1 = clock();
+	double time = (double(t1 - t0) / CLOCKS_PER_SEC);
+	lblT3->Text = " " + time;
+
 }
 };
 }
