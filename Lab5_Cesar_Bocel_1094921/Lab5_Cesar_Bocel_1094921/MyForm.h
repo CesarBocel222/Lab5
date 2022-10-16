@@ -51,6 +51,11 @@ namespace Lab5CesarBocel1094921 {
 	private: System::Windows::Forms::Label^ lblDatos;
 	private: System::Windows::Forms::Label^ lblOrden;
 	private: System::Windows::Forms::TextBox^ txtOrden;
+	private: System::Windows::Forms::ListBox^ lstNombres;
+	private: System::Windows::Forms::OpenFileDialog^ ofdArchivos;
+	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
+	private: System::ComponentModel::IContainer^ components;
+
 
 	protected:
 
@@ -58,7 +63,7 @@ namespace Lab5CesarBocel1094921 {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -67,6 +72,7 @@ namespace Lab5CesarBocel1094921 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->btnSelection = (gcnew System::Windows::Forms::Button());
 			this->btnQuick = (gcnew System::Windows::Forms::Button());
@@ -78,6 +84,9 @@ namespace Lab5CesarBocel1094921 {
 			this->lblDatos = (gcnew System::Windows::Forms::Label());
 			this->lblOrden = (gcnew System::Windows::Forms::Label());
 			this->txtOrden = (gcnew System::Windows::Forms::TextBox());
+			this->lstNombres = (gcnew System::Windows::Forms::ListBox());
+			this->ofdArchivos = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->SuspendLayout();
 			// 
 			// label1
@@ -177,11 +186,11 @@ namespace Lab5CesarBocel1094921 {
 			this->lblDatos->AutoSize = true;
 			this->lblDatos->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblDatos->Location = System::Drawing::Point(31, 129);
+			this->lblDatos->Location = System::Drawing::Point(27, 110);
 			this->lblDatos->Name = L"lblDatos";
-			this->lblDatos->Size = System::Drawing::Size(45, 20);
+			this->lblDatos->Size = System::Drawing::Size(197, 20);
 			this->lblDatos->TabIndex = 10;
-			this->lblDatos->Text = L"label2";
+			this->lblDatos->Text = L"No funciona ni tampoco mostrar";
 			// 
 			// lblOrden
 			// 
@@ -196,18 +205,36 @@ namespace Lab5CesarBocel1094921 {
 			// 
 			// txtOrden
 			// 
-			this->txtOrden->Location = System::Drawing::Point(271, 131);
+			this->txtOrden->Location = System::Drawing::Point(259, 127);
 			this->txtOrden->Multiline = true;
 			this->txtOrden->Name = L"txtOrden";
 			this->txtOrden->ScrollBars = System::Windows::Forms::ScrollBars::Horizontal;
 			this->txtOrden->Size = System::Drawing::Size(225, 98);
 			this->txtOrden->TabIndex = 12;
 			// 
+			// lstNombres
+			// 
+			this->lstNombres->FormattingEnabled = true;
+			this->lstNombres->Location = System::Drawing::Point(19, 133);
+			this->lstNombres->Name = L"lstNombres";
+			this->lstNombres->Size = System::Drawing::Size(156, 95);
+			this->lstNombres->TabIndex = 13;
+			// 
+			// ofdArchivos
+			// 
+			this->ofdArchivos->FileName = L"openFileDialog1";
+			// 
+			// contextMenuStrip1
+			// 
+			this->contextMenuStrip1->Name = L"contextMenuStrip1";
+			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(637, 434);
+			this->Controls->Add(this->lstNombres);
 			this->Controls->Add(this->txtOrden);
 			this->Controls->Add(this->lblOrden);
 			this->Controls->Add(this->lblDatos);
@@ -226,11 +253,13 @@ namespace Lab5CesarBocel1094921 {
 
 		}
 #pragma endregion
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
+
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {	
 		
 	}
 private: System::Void btnSelection_Click(System::Object^ sender, System::EventArgs^ e) {
+	//Ingeniero no me funciono para subir archivos ni tampoco para presentarlo entonces le subo lo que si funciona que es el ordenar datos 
 	unsigned t0, t1;
 	t0 = clock();
 		array<Pokedex^>^ pokemones = gcnew array<Pokedex^>(10);
@@ -246,13 +275,14 @@ private: System::Void btnSelection_Click(System::Object^ sender, System::EventAr
 		pokemones[9] = gcnew Pokedex(656, "Froakie", 6);
 		array<Selection_short^>^ lista = gcnew array<Selection_short^>(10);
 		lista[0]->Selection(pokemones,10);
+		String^ pokeinfo;
 		/*
 		for (int i = 0; i < 10; i++)
 		{
-			txtOrden->Text =;
+			txtOrden->Text = Convert::ToString(pokemones[i]);
 		}
-		*/
 		t1 = clock();
+		*/
 		double time = (double(t1 - t0)/ CLOCKS_PER_SEC);
 		lblT1->Text = " " + time;
 		
